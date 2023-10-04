@@ -20,7 +20,12 @@
             </nav>
         </header>
         <div id="content">
-            <div id="contributors" class="page visible">
+            <div class="layout">
+                <div class="layout-toggle">
+                    <a id="change-layout" onclick="changeLayout()">full</a>
+                </div>
+            </div>
+            <div id="contributors" class="page visible" layout-type="full">
 
                 <div class="hacktoberfesr-contributor">
                     <a href="https://github.com/Jan-Fcloud" target="_blank">
@@ -62,6 +67,23 @@
                     </a>
                 </div> 
                
+                <div class="hacktoberfesr-contributor">
+                     <a href="https://github.com/fridokus" target="_blank">
+                        <img class="mobile-img" src="assets/fridokus.jpg" height="150" width="150">
+                        <div class="card">
+                            <img class="desktop-img" src="assets/fridokus.jpg" height="400" width="400">
+                            <div class="card-info">
+                                <h1 class="orange-gradient">Oskar F</h1>
+                                <p class="flex-gap-small sub-info">Bitcoin enthusiast<span class="icon-circle"> o </span>Python developer<span class="icon-circle"> o </span>Long distance runner</p>
+                                <div class="using">
+                                    <h2>Software I use:</h2><div class="using-list"><p>vim</p><p>k9s</p><p>python</p><p>Bitcoin Core</p><p>Zeus lightning</p><p>i3</p><p>qutebrowser</p></span></div>
+                                    <h2>Things I've developed with so far:</h2>
+                                    <div class="using-list"><p>Java</p><p>Python</p><p>Pytorch</p><p>Javascript</p><p>Rust</p><p>C</p><p>HTML</p><p>CSS</p><p>Basic</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div> 
 
             
                 <!-- 
@@ -114,6 +136,19 @@
                 body.setAttribute("data-theme", "dark");
                 themeChanger.classList.remove("icon-sun");
                 themeChanger.classList.add("icon-moon");
+            }
+        }
+
+        const layoutChanger = document.getElementById("change-layout");
+        const contributors = document.getElementById("contributors");
+
+        function changeLayout() {
+            if(contributors.getAttribute("layout-type") == "full"){
+                contributors.setAttribute("layout-type", "compact");
+                layoutChanger.innerHTML = "full";
+            } else {
+                contributors.setAttribute("layout-type", "full");
+                layoutChanger.innerHTML = "compact";
             }
         }
     
